@@ -4,9 +4,9 @@ import { Container } from "semantic-ui-react";
 
 export default function Home() {
   return (
-    <Layout>
+    <Layout title={"Contact"}>
       <Container text>
-        <h2>Contact us</h2>
+        <h2>Contact</h2>
         <p>Here goes some text!</p>
       </Container>
     </Layout>

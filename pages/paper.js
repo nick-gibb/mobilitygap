@@ -3,7 +3,7 @@ import Layout from "../components/layout/layout";
 
 export default function Home() {
   return (
-    <Layout>
+    <Layout title={"Paper"}>
       <h2>
         The Mobility Gap: Mobility Reductions Needed to Suppress COVID-19
         through the Winter Surge in Canada

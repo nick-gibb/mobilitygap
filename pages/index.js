@@ -4,7 +4,7 @@ import { Header, Icon, Image, Container } from "semantic-ui-react";
 
 export default function Home() {
   return (
-    <Layout>
+    <Layout title={"Home"}>
       <div>
         <Header as="h2" icon textAlign="center">
           <Icon name="street view" circular />

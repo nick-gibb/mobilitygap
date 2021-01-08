@@ -10,11 +10,11 @@ import {
   Divider,
 } from "semantic-ui-react";
 
-export default function Layout({ children }) {
+export default function Layout({ children, title }) {
   return (
     <div>
       <Head>
-        <title>Mobility Gap </title>
+        <title>Mobility Gap - {title} </title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
       <TopMenu />
