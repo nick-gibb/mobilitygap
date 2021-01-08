@@ -1,6 +1,5 @@
-import Head from "next/head";
 import Layout from "../components/layout/layout";
-import { Header, Icon, Image, Container } from "semantic-ui-react";
+import { Header, Icon } from "semantic-ui-react";
 
 export default function Home() {
   return (

@@ -14,7 +14,7 @@ export default function Home() {
       </p>
       <p>
         Kevin A. Brown, Jean-Paul R. Soucy, Sarah A. Buchan, Shelby L. Sturrock,
-        Isha Berry, Nathan M. Stall, Amir Ghasemi, Nicholas Gibbs, Derek R.
+        Isha Berry, Nathan M. Stall, Amir Ghasemi, Nicholas Gibb, Derek R.
         MacFadden, Nick Daneman
       </p>
       <p>
