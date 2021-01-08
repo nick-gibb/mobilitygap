@@ -12,7 +12,7 @@ export default function TopMenu() {
         <Menu.Item name="paper">Paper</Menu.Item>
       </Link>
 
-      <Dropdown item scrolling text="Mobility Gap">
+      <Dropdown item scrolling text="Reports by Region">
         <Dropdown.Menu>
           <Dropdown.Header>Canada</Dropdown.Header>
           <Link href="/ca" passHref>
