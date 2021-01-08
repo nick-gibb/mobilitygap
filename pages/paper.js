@@ -10,7 +10,7 @@ export default function Home() {
       </h2>
       <p>January 5, 2020</p>
       <p>
-        <i>Canadian Medical Association Journal (submitted)</i>
+        <i>Manuscript under review</i>
       </p>
       <p>
         Kevin A. Brown, Jean-Paul R. Soucy, Sarah A. Buchan, Shelby L. Sturrock,
