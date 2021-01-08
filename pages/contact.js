@@ -1,6 +1,5 @@
-import Head from "next/head";
 import Layout from "../components/layout/layout";
-import { Container, List } from "semantic-ui-react";
+import { Container, List, Divider, Header, Icon } from "semantic-ui-react";
 
 export default function Home() {
   return (
@@ -15,11 +14,21 @@ export default function Home() {
               <List.Description>University of Toronto</List.Description>
             </List.Content>
           </List.Item>
+        </List>
 
+        <Divider horizontal>
+          <Header as="h4">Mobility Gap Team</Header>
+        </Divider>
+        <List horizontal>
+          <List.Item>
+            <List.Content>
+              <List.Header>Kevin Brown</List.Header>
+              <List.Description>University of Toronto</List.Description>
+            </List.Content>
+          </List.Item>
           <List.Item>
             <List.Content>
               <List.Header>Nicholas Gibb</List.Header>
-              <a href="mailto:jack@semantic-ui.com">nicholas.gibb@example.ca</a>
               <List.Description>
                 Public Health Agency of Canada
               </List.Description>

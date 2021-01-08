@@ -1,5 +1,5 @@
 import React from "react";
-import { Menu, Dropdown, Container } from "semantic-ui-react";
+import { Menu, Dropdown } from "semantic-ui-react";
 import Link from "next/link";
 
 export default function TopMenu() {
@@ -16,7 +16,7 @@ export default function TopMenu() {
         <Dropdown.Menu>
           <Dropdown.Header>Canada</Dropdown.Header>
           <Link href="/ca" passHref>
-            <Dropdown.Item name="cad">National overview</Dropdown.Item>
+            <Dropdown.Item name="cad">Overview</Dropdown.Item>
           </Link>
 
           <Link href="/ca/ab" passHref={true}>
