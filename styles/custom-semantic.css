@@ -1,0 +1,4 @@
+@media only screen and (max-width: 800px) // or any width you want stackable menu on
+  .ui.stackable.menu .item {
+  width: 100%!important;
+}
