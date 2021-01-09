@@ -32,13 +32,10 @@ export default function Report(props) {
     },
   ];
 
-  const StatisticExampleGroupShorthand = () => (
-    <Statistic.Group widths="three" size="small" items={items} />
-  );
   return (
     <Layout title={props.region}>
       <Header as="h2">Mobility Gap: {props.region}</Header>
-      <StatisticExampleGroupShorthand />
+      <Statistic.Group widths="three" size="small" items={items} />
 
       <PlaceholderExampleLine />
     </Layout>
