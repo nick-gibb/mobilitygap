@@ -1,4 +1,4 @@
-import Report from "../../components/layout/reports";
+import Report from "../components/layout/reports";
 
 export default function Ca() {
   const mobility = Math.floor(Math.random() * 100) + 1;
