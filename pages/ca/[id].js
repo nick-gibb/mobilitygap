@@ -1,9 +1,8 @@
 import Layout from "../../components/layout/layout";
-import ErrorPage from "next/error";
+import Date from "../../components/date";
 import { getAllPostIds, getPostData } from "../../lib/posts";
 
 export async function getStaticProps({ params }) {
-  console.log(params);
   const postData = await getPostData(params.id, "ca");
   return {
     props: {
@@ -22,12 +21,10 @@ export async function getStaticPaths() {
 
 export default function Post({ postData }) {
   return (
-    <Layout>
+    <Layout title={postData.title}>
       {postData.title}
       <br />
-      {postData.id}
-      <br />
-      {postData.date}
+      <Date dateString={postData.date} />
       <br />
       <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
     </Layout>
