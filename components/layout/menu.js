@@ -23,33 +23,49 @@ export default function TopMenu() {
             <Dropdown.Item name="ab">Alberta</Dropdown.Item>
           </Link>
           <Link href="/ca/bc" passHref={true}>
-            <Dropdown.Item name="bc">British Columbia</Dropdown.Item>
+            <Dropdown.Item name="bc" disabled>
+              British Columbia
+            </Dropdown.Item>
           </Link>
           <Link href="/ca/mb" passHref={true}>
-            <Dropdown.Item name="mb">Manitoba</Dropdown.Item>
+            <Dropdown.Item name="mb" disabled>
+              Manitoba
+            </Dropdown.Item>
           </Link>
 
           <Link href="/ca/nb" passHref={true}>
-            <Dropdown.Item name="nb">New Brunswick</Dropdown.Item>
+            <Dropdown.Item name="nb" disabled>
+              New Brunswick
+            </Dropdown.Item>
           </Link>
 
           <Link href="/ca/nl" passHref={true}>
-            <Dropdown.Item name="nl">Newfoundland</Dropdown.Item>
+            <Dropdown.Item name="nl" disabled>
+              Newfoundland
+            </Dropdown.Item>
           </Link>
           <Link href="/ca/ns" passHref={true}>
-            <Dropdown.Item name="ns">Nova Scotia</Dropdown.Item>
+            <Dropdown.Item name="ns" disabled>
+              Nova Scotia
+            </Dropdown.Item>
           </Link>
 
           <Link href="/ca/on" passHref={true}>
-            <Dropdown.Item name="on">Ontario</Dropdown.Item>
+            <Dropdown.Item name="on" disabled>
+              Ontario
+            </Dropdown.Item>
           </Link>
 
           <Link href="/ca/qc" passHref={true}>
-            <Dropdown.Item name="qc">Quebec</Dropdown.Item>
+            <Dropdown.Item name="qc" disabled>
+              Quebec
+            </Dropdown.Item>
           </Link>
 
           <Link href="/ca/sk" passHref={true}>
-            <Dropdown.Item name="sk">Saskatchewan</Dropdown.Item>
+            <Dropdown.Item name="sk" disabled>
+              Saskatchewan
+            </Dropdown.Item>
           </Link>
 
           <Dropdown.Divider />

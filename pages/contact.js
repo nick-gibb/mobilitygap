@@ -19,7 +19,7 @@ export default function Home() {
         <Divider horizontal>
           <Header as="h4">Mobility Gap Team</Header>
         </Divider>
-        <List horizontal>
+        {/* <List horizontal>
           <List.Item>
             <List.Content>
               <List.Header>Kevin Brown</List.Header>
@@ -34,7 +34,7 @@ export default function Home() {
               </List.Description>
             </List.Content>
           </List.Item>
-        </List>
+        </List> */}
       </Container>
     </Layout>
   );

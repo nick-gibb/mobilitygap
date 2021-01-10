@@ -1,9 +1,9 @@
-import Layout from "../../components/layout/layout";
-import Date from "../../components/date";
-import { getAllPostIds, getPostData } from "../../lib/posts";
+import Layout from "../../../components/layout/layout";
+import Date from "../../../components/date";
+import { getAllPostIds, getPostData } from "../../../lib/posts";
 
 export async function getStaticProps({ params }) {
-  const postData = await getPostData(params.id, "ca");
+  const postData = await getPostData(params.id, "ab");
   return {
     props: {
       postData,
@@ -12,7 +12,7 @@ export async function getStaticProps({ params }) {
 }
 
 export async function getStaticPaths() {
-  const paths = getAllPostIds("ca");
+  const paths = getAllPostIds("ab");
   return {
     paths,
     fallback: false,
