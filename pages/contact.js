@@ -1,5 +1,5 @@
 import Layout from "../components/layout/layout";
-import { Container, List, Divider, Header, Icon } from "semantic-ui-react";
+import { Container, List, Divider, Header } from "semantic-ui-react";
 
 export default function Home() {
   return (
