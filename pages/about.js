@@ -1,11 +1,11 @@
 import Layout from "../components/layout/layout";
 import { Container, List, Divider, Header } from "semantic-ui-react";
 
-export default function Home() {
+export default function About() {
   return (
-    <Layout title={"Contact"}>
+    <Layout title={"About"}>
       <Container text>
-        <h2>Contact</h2>
+        <h2>About</h2>
         <List horizontal>
           <List.Item>
             <List.Content>
