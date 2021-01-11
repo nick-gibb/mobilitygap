@@ -19,7 +19,7 @@ export default function Layout({ children, title }) {
       </Head>
       <TopMenu />
 
-      <Container text>{children}</Container>
+      {children}
 
       <Segment vertical style={{ margin: "5em 0em 0em", padding: "5em 0em" }}>
         <Container textAlign="center">

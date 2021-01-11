@@ -1,6 +1,7 @@
 import Layout from "../../../components/layout/layout";
 import Date from "../../../components/date";
 import { getAllPostIds, getPostData } from "../../../lib/posts";
+import { Container } from "semantic-ui-react";
 
 export async function getStaticProps({ params }) {
   const postData = await getPostData(params.id, "ab");
@@ -22,11 +23,13 @@ export async function getStaticPaths() {
 export default function Post({ postData }) {
   return (
     <Layout title={postData.title}>
-      <h2>{postData.title}</h2>
-      <h3>
-        <Date dateString={postData.date} />
-      </h3>
-      <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
+      <Container text>
+        <h2>{postData.title}</h2>
+        <h3>
+          <Date dateString={postData.date} />
+        </h3>
+        <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
+      </Container>
     </Layout>
   );
 }

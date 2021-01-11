@@ -1,10 +1,10 @@
 import Layout from "../components/layout/layout";
-import { Header, Icon } from "semantic-ui-react";
+import { Header, Icon, Container } from "semantic-ui-react";
 
 export default function Home() {
   return (
     <Layout title={"Home"}>
-      <div>
+      <Container text>
         <Header as="h2" icon textAlign="center">
           <Icon name="street view" circular />
           <Header.Content>Mobility and Covid-19</Header.Content>
@@ -15,7 +15,7 @@ export default function Home() {
             Canada.
           </Header.Subheader>
         </Header>
-      </div>
+      </Container>
     </Layout>
   );
 }

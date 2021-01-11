@@ -9,7 +9,10 @@ export default function Research() {
     <Layout title={"Research"}>
       <h1>Research</h1>
       <Item.Group link divided relaxed>
-        <Item href="https://www.medrxiv.org/content/10.1101/2020.04.05.20054288v3">
+        <Item
+          href="https://www.medrxiv.org/content/10.1101/2020.04.05.20054288v3"
+          target="_blank"
+        >
           <Item.Content>
             <Item.Header>
               Estimating effects of physical distancing on the COVID-19 pandemic
@@ -25,7 +28,7 @@ export default function Research() {
             <Item.Description>May 24, 2020</Item.Description>
           </Item.Content>
         </Item>
-        <Item href="https://www.medrxiv.org/">
+        <Item href="https://www.medrxiv.org/" target="_blank">
           <Item.Content>
             <Item.Header>
               The Mobility Gap: Mobility Reductions Needed to Suppress COVID-19
