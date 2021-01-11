@@ -1,14 +1,7 @@
 import Link from "next/link";
 import Head from "next/head";
 import TopMenu from "./menu";
-import {
-  Container,
-  Segment,
-  Grid,
-  Header,
-  List,
-  Divider,
-} from "semantic-ui-react";
+import { Container, Segment, List } from "semantic-ui-react";
 
 export default function Layout({ children, title }) {
   return (
@@ -30,8 +23,8 @@ export default function Layout({ children, title }) {
             <Link href="/research" passHref>
               <List.Item>Research</List.Item>
             </Link>
-            <Link href="/contact" passHref>
-              <List.Item>Contact</List.Item>
+            <Link href="/about" passHref>
+              <List.Item>About</List.Item>
             </Link>
           </List>
         </Container>
