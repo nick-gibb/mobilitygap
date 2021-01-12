@@ -2,13 +2,18 @@ import Head from "next/head";
 import Layout from "../components/layout/layout";
 import React from "react";
 import { Item, Container } from "semantic-ui-react";
-import Link from "next/link";
+import { Header } from "semantic-ui-react";
 
 export default function Research() {
   return (
     <Layout title={"Research"}>
       <Container text>
-        <h1>Research</h1>
+        <Header
+          as="h1"
+          content="Research"
+          subheader="Pre-prints and published peer-reviewed articles on mobility patterns
+            and COVID-19"
+        />
         <Item.Group link divided relaxed>
           <Item
             href="https://www.medrxiv.org/content/10.1101/2020.04.05.20054288v3"

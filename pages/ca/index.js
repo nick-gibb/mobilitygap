@@ -1,6 +1,7 @@
 import Layout from "../../components/layout/layout";
 import { getSortedPostsData } from "../../lib/posts";
 import Link from "next/link";
+import { Header } from "semantic-ui-react";
 import Date from "../../components/date";
 // import React from "react";
 import { Card, Container } from "semantic-ui-react";
@@ -17,10 +18,10 @@ export async function getStaticProps() {
 export default function Ca({ allPostsData }) {
   const region = "Canada";
   return (
-    <Layout>
+    <Layout title={region}>
       <Container>
         <section>
-          <h2>{region}</h2>
+          <Header as="h1" content={region} />
           <Card.Group>
             {allPostsData.map(({ id, date, title, description }) => (
               <Card key={id} href={`/ca/${id}`}>
