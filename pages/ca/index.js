@@ -1,10 +1,8 @@
 import Layout from "../../components/layout/layout";
+import ListItem from "../../components/listitem";
 import { getSortedPostsData } from "../../lib/posts";
-import Link from "next/link";
-import { Header } from "semantic-ui-react";
-import Date from "../../components/date";
-// import React from "react";
-import { Card, Container } from "semantic-ui-react";
+import { Header, List } from "semantic-ui-react";
+import { Container } from "semantic-ui-react";
 
 export async function getStaticProps() {
   const allPostsData = getSortedPostsData("ca");
@@ -19,23 +17,13 @@ export default function Ca({ allPostsData }) {
   const region = "Canada";
   return (
     <Layout title={region}>
-      <Container>
-        <section>
-          <Header as="h1" content={region} />
-          <Card.Group>
-            {allPostsData.map(({ id, date, title, description }) => (
-              <Card key={id} href={`/ca/${id}`}>
-                <Card.Content>
-                  <Card.Header>{title}</Card.Header>
-                  <Card.Meta>
-                    <Date dateString={date} />
-                  </Card.Meta>
-                  <Card.Description>{description}</Card.Description>
-                </Card.Content>
-              </Card>
-            ))}
-          </Card.Group>
-        </section>
+      <Container text>
+        <Header as="h1" content={region} />
+        <List divided>
+          {allPostsData.map(({ id, date, title }) => (
+            <ListItem id={id} title={title} date={date} region={region} />
+          ))}
+        </List>
       </Container>
     </Layout>
   );
