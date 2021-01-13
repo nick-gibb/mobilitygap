@@ -2,6 +2,21 @@ import React from "react";
 import { Menu, Dropdown } from "semantic-ui-react";
 import Link from "next/link";
 
+const countryOptions = [
+  { key: "sk", value: "sk", text: "Saskatchewan" },
+  { key: "ab", value: "ab", text: "Alberta" },
+];
+
+const DropdownExampleSearchSelection = () => (
+  <Dropdown
+    placeholder="Regional Reports..."
+    // fluid
+    search
+    selection
+    options={countryOptions}
+  />
+);
+
 export default function TopMenu() {
   return (
     <Menu stackable borderless>
@@ -20,7 +35,9 @@ export default function TopMenu() {
           </Link>
 
           <Link href="/ca/ab" passHref={true}>
-            <Dropdown.Item name="ab">Alberta</Dropdown.Item>
+            <Dropdown.Item name="ab" key="Alberta">
+              Alberta
+            </Dropdown.Item>
           </Link>
           <Link href="/ca/bc" passHref={true}>
             <Dropdown.Item name="bc" disabled>

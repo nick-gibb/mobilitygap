@@ -40,7 +40,7 @@ export default function About() {
               </a>
               <br />
               <List.Icon name="twitter" />
-              <a href="twitter.com/jpsoucy">jpsoucy</a>
+              <a href="https://www.twitter.com/jpsoucy">jpsoucy</a>
             </List.Content>
           </List.Item>
 
@@ -62,7 +62,7 @@ export default function About() {
                 Public Health Agency of Canada
               </List.Description>
               <List.Icon name="twitter" />
-              <a href="twitter.com/gibbnicholas">gibbnicholas</a>
+              <a href="https://www.twitter.com/gibbnicholas">gibbnicholas</a>
             </List.Content>
           </List.Item>
 
@@ -72,7 +72,7 @@ export default function About() {
               <List.Header>Isha Berry</List.Header>
               <List.Description>University of Toronto</List.Description>
               <List.Icon name="twitter" />
-              <a href="twitter.com/ishaberry2">ishaberry2</a>
+              <a href="https://www.twitter.com/ishaberry2">ishaberry2</a>
             </List.Content>
           </List.Item>
         </List>
