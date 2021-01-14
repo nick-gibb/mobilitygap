@@ -5,9 +5,9 @@ export default function Home() {
   return (
     <Layout title={"Home"}>
       <Container text>
-        <Header as="h2" icon textAlign="center">
+        <Header as="h2" icon textAlign="center" dividing>
           <Icon name="street view" circular />
-          <Header.Content>Mobility and Covid-19</Header.Content>
+          <Header.Content>Mobility Gap</Header.Content>
           <Header.Subheader>
             We provide real-time information on cellular phone mobility measures
             and how they relate to COVID-19 transmission. On this site you can

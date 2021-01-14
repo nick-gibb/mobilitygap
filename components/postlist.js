@@ -20,8 +20,8 @@ export default function postlist({ allPostsData, region }) {
     <Layout title={regionName}>
       <Container text>
         <section>
-          <h2>{regionName} Reports</h2>
-          <List divided>
+          <h3>{regionName} Reports</h3>
+          <List celled>
             {allPostsData.map(({ id, date, title }) => (
               <ListItem id={id} title={title} date={date} region={region} />
             ))}
