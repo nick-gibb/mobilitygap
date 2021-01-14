@@ -1,7 +1,7 @@
-import { getAllPostIds, getPostData } from "../../lib/posts";
-import Post from "../../components/post";
+import { getAllPostIds, getPostData } from "../../../lib/posts";
+import Post from "../../../components/post";
 
-const region = "ca";
+const region = "on";
 
 export async function getStaticProps({ params }) {
   const postData = await getPostData(params.id, region);

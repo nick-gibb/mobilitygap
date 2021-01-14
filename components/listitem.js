@@ -3,8 +3,15 @@ import Date from "./date";
 import Link from "next/link";
 
 const regionPaths = {
-  Canada: "/ca/",
-  Alberta: "/ca/ab/",
+  ca: "/ca/",
+  ab: "/ca/ab/",
+  mb: "/ca/mb/",
+  bc: "/ca/bc/",
+  sk: "/ca/sk/",
+  on: "/ca/on/",
+  nl: "/ca/nl/",
+  nb: "/ca/nb/",
+  ns: "/ca/ns/",
 };
 
 export default function ListItem({ id, title, date, region }) {

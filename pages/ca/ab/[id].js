@@ -1,10 +1,10 @@
-import Layout from "../../../components/layout/layout";
-import Date from "../../../components/date";
 import { getAllPostIds, getPostData } from "../../../lib/posts";
-import { Container } from "semantic-ui-react";
+import Post from "../../../components/post";
+
+const region = "ab";
 
 export async function getStaticProps({ params }) {
-  const postData = await getPostData(params.id, "ab");
+  const postData = await getPostData(params.id, region);
   return {
     props: {
       postData,
@@ -13,23 +13,13 @@ export async function getStaticProps({ params }) {
 }
 
 export async function getStaticPaths() {
-  const paths = getAllPostIds("ab");
+  const paths = getAllPostIds(region);
   return {
     paths,
     fallback: false,
   };
 }
 
-export default function Post({ postData }) {
-  return (
-    <Layout title={postData.title}>
-      <Container text>
-        <h2>{postData.title}</h2>
-        <h3>
-          <Date dateString={postData.date} />
-        </h3>
-        <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
-      </Container>
-    </Layout>
-  );
+export default function aPost({ postData }) {
+  return <Post postData={postData} />;
 }

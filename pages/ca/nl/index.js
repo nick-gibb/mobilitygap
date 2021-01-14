@@ -1,7 +1,7 @@
 import { getSortedPostsData } from "../../../lib/posts";
 import PostList from "../../../components/postlist";
 
-const region = "ab";
+const region = "nl";
 export async function getStaticProps() {
   const allPostsData = getSortedPostsData(region);
   return {
