@@ -31,16 +31,12 @@ const regionNames = {
 
 const BreadcrumbExample = ({ regionName, reportDate }) => (
   <Breadcrumb>
-    <Link href="/reports">
-      <a>
-        <Breadcrumb.Section link>Reports</Breadcrumb.Section>
-      </a>
+    <Link href="/reports" passHref>
+      <Breadcrumb.Section>Reports</Breadcrumb.Section>
     </Link>
     <Breadcrumb.Divider />
-    <Link href={regionPaths[regionName]}>
-      <a>
-        <Breadcrumb.Section>{regionNames[regionName]}</Breadcrumb.Section>
-      </a>
+    <Link href={regionPaths[regionName]} passHref>
+      <Breadcrumb.Section>{regionNames[regionName]}</Breadcrumb.Section>
     </Link>
     <Breadcrumb.Divider />
     <Breadcrumb.Section active>{reportDate}</Breadcrumb.Section>
@@ -48,7 +44,6 @@ const BreadcrumbExample = ({ regionName, reportDate }) => (
 );
 
 export default function Post({ postData, region }) {
-  console.log(region);
   return (
     <Layout title={postData.title}>
       <Container text>
