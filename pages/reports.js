@@ -36,9 +36,9 @@ const BreadcrumbExample = () => (
 
 export default function RegionalReports({ sortedRegions }) {
   const regionLinks = sortedRegions.map((region) => {
-    const prefix = region == "ca" ? "" : "ca/";
+    const prefix = region == "ca" ? "/" : "/ca/";
     return (
-      <List link>
+      <List key={region}>
         <Link href={prefix + region} passHref>
           <List.Item>{regionNames[region]}</List.Item>
         </Link>

@@ -32,11 +32,15 @@ const regionNames = {
 const BreadcrumbExample = ({ regionName, reportDate }) => (
   <Breadcrumb>
     <Link href="/reports">
-      <Breadcrumb.Section link>Reports</Breadcrumb.Section>
+      <a>
+        <Breadcrumb.Section link>Reports</Breadcrumb.Section>
+      </a>
     </Link>
     <Breadcrumb.Divider />
     <Link href={regionPaths[regionName]}>
-      <Breadcrumb.Section>{regionNames[regionName]}</Breadcrumb.Section>
+      <a>
+        <Breadcrumb.Section>{regionNames[regionName]}</Breadcrumb.Section>
+      </a>
     </Link>
     <Breadcrumb.Divider />
     <Breadcrumb.Section active>{reportDate}</Breadcrumb.Section>
