@@ -1,18 +1,7 @@
 import { List } from "semantic-ui-react";
 import Date from "./date";
 import Link from "next/link";
-
-const regionPaths = {
-  ca: "/ca/",
-  ab: "/ca/ab/",
-  mb: "/ca/mb/",
-  bc: "/ca/bc/",
-  sk: "/ca/sk/",
-  on: "/ca/on/",
-  nl: "/ca/nl/",
-  nb: "/ca/nb/",
-  ns: "/ca/ns/",
-};
+import { regionPaths } from "./constants";
 
 export default function ListItem({ id, title, date, region }) {
   const postLink = regionPaths[region] + id;

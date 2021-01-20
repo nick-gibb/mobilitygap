@@ -4,30 +4,7 @@ import Date from "./date";
 import { Breadcrumb } from "semantic-ui-react";
 import Link from "next/link";
 import PageTitle from "./title";
-
-const regionPaths = {
-  ca: "/ca/",
-  ab: "/ca/ab/",
-  mb: "/ca/mb/",
-  bc: "/ca/bc/",
-  sk: "/ca/sk/",
-  on: "/ca/on/",
-  nl: "/ca/nl/",
-  nb: "/ca/nb/",
-  ns: "/ca/ns/",
-};
-
-const regionNames = {
-  ca: "Canada",
-  ab: "Alberta",
-  mb: "Manitoba",
-  bc: "British Colombia",
-  sk: "Saskatchewan",
-  on: "Ontario",
-  nl: "Newfoundland",
-  nb: "New Brunswick",
-  ns: "Nova Scotia",
-};
+import { regionPaths, regionNames } from "./constants";
 
 const BreadcrumbExample = ({ regionName, reportDate }) => (
   <Breadcrumb>

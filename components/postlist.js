@@ -4,17 +4,7 @@ import { Container, List } from "semantic-ui-react";
 import Link from "next/link";
 import { Breadcrumb } from "semantic-ui-react";
 // import PageTitle from "./title";
-const regionNames = {
-  ca: "Canada",
-  ab: "Alberta",
-  mb: "Manitoba",
-  bc: "British Colombia",
-  sk: "Saskatchewan",
-  on: "Ontario",
-  nl: "Newfoundland",
-  nb: "New Brunswick",
-  ns: "Nova Scotia",
-};
+import { regionNames } from "./constants";
 
 const BreadcrumbExample = ({ regionName }) => (
   <Breadcrumb>
