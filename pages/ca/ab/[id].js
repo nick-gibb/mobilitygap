@@ -21,5 +21,5 @@ export async function getStaticPaths() {
 }
 
 export default function aPost({ postData }) {
-  return <Post postData={postData} />;
+  return <Post postData={postData} region={region} />;
 }

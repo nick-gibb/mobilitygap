@@ -3,7 +3,9 @@ import React from "react";
 import { Container, List } from "semantic-ui-react";
 import { getSortedRegions } from "../lib/posts";
 import Link from "next/link";
-import { Header } from "semantic-ui-react";
+import { Breadcrumb } from "semantic-ui-react";
+
+import PageTitle from "../components/title";
 
 const regionNames = {
   ca: "Canada",
@@ -26,6 +28,12 @@ export async function getStaticProps() {
   };
 }
 
+const BreadcrumbExample = () => (
+  <Breadcrumb>
+    <Breadcrumb.Section active>Reports</Breadcrumb.Section>
+  </Breadcrumb>
+);
+
 export default function RegionalReports({ sortedRegions }) {
   const regionLinks = sortedRegions.map((region) => {
     const prefix = region == "ca" ? "" : "ca/";
@@ -41,7 +49,9 @@ export default function RegionalReports({ sortedRegions }) {
   return (
     <Layout title={"Regional Reports"}>
       <Container text>
-        <Header as="h1" content="Mobility Gap Regional Reports" dividing />
+        <BreadcrumbExample />
+        {/* <PageTitle titleText="Mobility Gap Regional Reports" /> */}
+
         {regionLinks}
       </Container>
     </Layout>
