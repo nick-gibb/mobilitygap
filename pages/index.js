@@ -5,7 +5,7 @@ export default function Home() {
   return (
     <Layout title={"Home"}>
       <Container text>
-        <Header as="h2" icon textAlign="center" dividing>
+        <Header as="h2" icon textAlign="center">
           <Icon name="street view" circular />
           <Header.Content>Mobility Gap</Header.Content>
           <Header.Subheader>

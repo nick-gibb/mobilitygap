@@ -11,6 +11,7 @@ export default function Research() {
         <Header
           as="h1"
           content="Research"
+          dividing
           subheader="Pre-prints and published peer-reviewed articles on mobility patterns
             and COVID-19"
         />

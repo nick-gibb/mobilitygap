@@ -8,11 +8,15 @@ export default function TopMenu() {
       <Link href="/" passHref>
         <Menu.Item header>Mobility Gap</Menu.Item>
       </Link>
+
       <Link href="/research" passHref>
         <Menu.Item name="research">Research</Menu.Item>
       </Link>
+      <Link href="/trends" passHref>
+        <Menu.Item>Mobility Trends</Menu.Item>
+      </Link>
 
-      <Dropdown item scrolling text="Regional Reports">
+      <Dropdown item scrolling text="Mobility Gap Regional Reports">
         <Dropdown.Menu>
           <Dropdown.Header>Canada</Dropdown.Header>
           <Link href="/ca" passHref>
@@ -59,7 +63,7 @@ export default function TopMenu() {
         </Dropdown.Menu>
       </Dropdown>
 
-      <Menu.Menu position="right">
+      <Menu.Menu >
         <Link href="/about" passHref={true}>
           <Menu.Item name="about">About</Menu.Item>
         </Link>

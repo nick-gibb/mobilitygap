@@ -23,6 +23,12 @@ export default function Layout({ children, title }) {
             <Link href="/research" passHref>
               <List.Item>Research</List.Item>
             </Link>
+            <Link href="/trends" passHref>
+              <List.Item>Trends</List.Item>
+            </Link>
+            <Link href="/reports" passHref>
+              <List.Item>Reports</List.Item>
+            </Link>
             <Link href="/about" passHref>
               <List.Item>About</List.Item>
             </Link>
