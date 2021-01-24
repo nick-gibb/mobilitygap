@@ -21,13 +21,7 @@ export default async (req, res) => {
     const post = await db.any(
       "SELECT ${columns:name} FROM public.canada WHERE country_region=${country_region} AND sub_region_1 is null AND sub_region_2 is null",
       {
-        columns: [
-          "country_region",
-          "sub_region_1",
-          "sub_region_2",
-          "date",
-          ...requested_pois,
-        ],
+        columns: ["country_region", "date", ...requested_pois],
         country_region,
       }
     );
