@@ -1,4 +1,5 @@
-const db = require("../../../../lib/db");
+const database = require("../../../../lib/db");
+const db = database.db;
 
 export default async (req, res) => {
   try {
