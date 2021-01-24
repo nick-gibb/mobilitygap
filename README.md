@@ -6,6 +6,8 @@
 
 #### `GET` requests
 
+Click links to view example request.
+
 [`/api/google/country_regions`](https://mobilitygap.ca/api/google/country_regions): Returns all national-level data. For now, only Canadian data is available.
 
 [`/api/google/country_regions/[country_region]`](https://mobilitygap.ca/api/google/country_regions/Canada): Returns all national-level data. For now, only Canadian data is available.
