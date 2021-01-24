@@ -10,8 +10,6 @@
 
 [`/api/google/country_regions/[country_region]`](https://mobilitygap.ca/api/google/country_regions/Canada): Returns all national-level data. For now, only Canadian data is available.
 
-[`/api/google/sub_regions_1`](https://mobilitygap.ca/api/google/sub_regions_1?country_region=Canada): Returns all mobility data at the subregion-level (e.g. provinces). Must specify country_region as parameter, e.g. append `?country_region=Canada`.
-
 [`/api/google/sub_regions_1/`](https://mobilitygap.ca/api/google/sub_regions_1?country_region=Canada): Returns all mobility data at the subregion-level (e.g. provinces). Must specify country_region as parameter, e.g. append `?country_region=Canada`. If `pois=none` is provided, returns a list of sub_regions_1 (e.g. all the provinces). Can also filter by point-of-interest by providing a comma-separated list of pois, e.g. `poi=grocery_and_pharmacy_percent_change_from_baseline`.
 
 [`/api/google/sub_regions_1/[sub_region_1]`](https://mobilitygap.ca/api/google/sub_regions_1/Ontario): Returns all mobility data for the specified subregion (e.g. Ontario).
