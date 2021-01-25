@@ -18,9 +18,6 @@ export default async (req, res) => {
       ];
     }
 
-    console.log(pois);
-    console.log(requested_pois);
-
     const post = await db.any(
       "SELECT ${columns:name} FROM public.canada WHERE sub_region_2=$/sub_region_2/",
       {

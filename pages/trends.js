@@ -3,6 +3,7 @@ import React from "react";
 import { Container } from "semantic-ui-react";
 import { Header } from "semantic-ui-react";
 import { Line } from "react-chartjs-2";
+import { Dropdown } from "semantic-ui-react";
 
 const data = {
   datasets: [
@@ -39,13 +40,15 @@ export default function Trends() {
   return (
     <Layout title={"Trends"}>
       <Container text>
-        <Header
-          as="h1"
-          content="Mobility Trends"
-          dividing
-          subheader="The latest mobility data from Google"
+        <Header as="h1" content="Mobility Trends" />
+        <Dropdown placeholder="Province" fluid multiple search selection />
+        <Dropdown
+          placeholder="Census subdivision"
+          fluid
+          multiple
+          search
+          selection
         />
-
         <Line
           data={data}
           options={{
