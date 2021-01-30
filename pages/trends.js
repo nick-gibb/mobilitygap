@@ -53,7 +53,7 @@ export default function Trends(props) {
   return (
     <Layout title={"Trends"}>
       <Container text>
-        <Header as="h1" content="Mobility Trends" />
+        {/* <Header as="h1" content="Mobility Trends" /> */}
         <Graph region_1={region_1} region_2={region_2} />
         <Form>
           <Form.Dropdown

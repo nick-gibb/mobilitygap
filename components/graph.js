@@ -16,7 +16,7 @@ export default function Graph({ region_1, region_2 }) {
   const [datasets, setDatasets] = React.useState([]);
 
   useEffect(() => {
-    fetch(`https:www.mobilitygap.ca/api/google/sub_regions_1/Ontario`, {
+    fetch(`api/google/sub_regions_1/Ontario`, {
       mode: "no-cors",
     })
       .then(function (response) {
@@ -78,7 +78,7 @@ export default function Graph({ region_1, region_2 }) {
         title: {
           ticks: { source: "data" },
           display: true,
-          text: "Awesome Mobility Trends",
+          text: "Mobility Trends",
         },
         scales: {
           xAxes: [
