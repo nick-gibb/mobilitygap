@@ -16,7 +16,7 @@ export default function Graph({ region_1, region_2 }) {
   const [datasets, setDatasets] = React.useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:3000/api/google/sub_regions_1/Ontario`, {
+    fetch(`https:www.mobilitygap.ca/api/google/sub_regions_1/Ontario`, {
       mode: "no-cors",
     })
       .then(function (response) {
