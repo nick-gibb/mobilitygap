@@ -42,19 +42,26 @@ const data = {
 
 export async function getStaticProps() {
   const sql = pgp.as.format(
-    "SELECT distinct sub_region_2 FROM public.canada WHERE country_region=$1 AND sub_region_1 is not null AND sub_region_2 is not null",
+    "SELECT distinct sub_region_2 FROM public.canada WHERE country_region=$1 AND sub_region_1 is not null AND sub_region_2 is not null order by sub_region_2",
     "Canada"
   );
 
   const queryResult = await db.any("$1:raw", sql);
 
+  const sql_provinces = pgp.as.format(
+    "SELECT distinct sub_region_1 FROM public.canada WHERE country_region=$1 AND sub_region_1 is not null AND sub_region_2 is not null order by sub_region_1",
+    "Canada"
+  );
+
+  const query_province_result = await db.any("$1:raw", sql_provinces);
+  console.log(query_province_result);
+
   return {
-    props: { queryResult },
+    props: { queryResult, query_province_result },
   };
 }
 
 export default function Trends(props) {
-  console.log(props["queryResult"]);
   const options = props["queryResult"].map((csd) => {
     return {
       key: csd["sub_region_2"],
@@ -62,7 +69,14 @@ export default function Trends(props) {
       text: csd["sub_region_2"],
     };
   });
-  console.log(options);
+  const province_options = props["query_province_result"].map((csd) => {
+    return {
+      key: csd["sub_region_1"],
+      value: csd["sub_region_1"],
+      text: csd["sub_region_1"],
+    };
+  });
+  console.log(province_options);
   return (
     <Layout title={"Trends"}>
       <Container text>
@@ -77,7 +91,14 @@ export default function Trends(props) {
             },
           }}
         />
-        <Dropdown placeholder="Province" fluid multiple search selection />
+        <Dropdown
+          placeholder="Province"
+          fluid
+          multiple
+          search
+          selection
+          options={province_options}
+        />
         <Dropdown
           style={{ marginTop: 5 }}
           placeholder="Census subdivision"
