@@ -1,11 +1,7 @@
 import Layout from "../components/layout/layout";
 import Graph from "../components/graph";
-
 import React from "react";
-import { Container } from "semantic-ui-react";
-import { Header } from "semantic-ui-react";
-
-import { Form } from "semantic-ui-react";
+import { Container, Form, Checkbox } from "semantic-ui-react";
 import { useState } from "react";
 const database = require("../lib/db");
 const pgp = database.pgp;
@@ -54,7 +50,7 @@ export default function Trends(props) {
     <Layout title={"Trends"}>
       <Container text>
         {/* <Header as="h1" content="Mobility Trends" /> */}
-        <Graph region_1={region_1} region_2={region_2} />
+
         <Form>
           <Form.Dropdown
             placeholder="Search..."
@@ -76,7 +72,27 @@ export default function Trends(props) {
             selection
             options={options}
           />
+          <Form.Group inline>
+            <Form.Field>
+              <label>POIs:</label>
+            </Form.Field>
+            <Form.Checkbox label="Retail" />
+            <Form.Checkbox label="Grocery and pharmacy" />
+            <Form.Checkbox label="Workplaces" />
+            <Form.Checkbox label="Residential" />
+            <Form.Checkbox label="Transit" />
+          </Form.Group>
+
+          {/* grocery_and_pharmacy_percent_change_from_baseline: "#003f5c",
+  workplaces_percent_change_from_baseline: "#444e86",
+  residential_percent_change_from_baseline: "#955196",
+  retail_and_recreation_percent_change_from_baseline: "#dd5182",
+  transit_stations_percent_change_from_baseline: "#ff6e54",
+  workplaces_percent_change_from_baseline: "#ffa600", */}
         </Form>
+        <Container style={{ position: "relative", height: 400 }}>
+          <Graph region_1={region_1} region_2={region_2} />
+        </Container>
       </Container>
     </Layout>
   );

@@ -13,6 +13,8 @@ const poi_colours = {
 };
 
 export default function Graph({ region_1, region_2 }) {
+  console.log(region_1);
+  console.log(region_2);
   const [datasets, setDatasets] = React.useState([]);
 
   useEffect(() => {
@@ -59,6 +61,7 @@ export default function Graph({ region_1, region_2 }) {
               pointHoverBackgroundColor: colour,
               pointHoverBorderColor: colour,
               fill: false,
+              pointRadius: 2,
               borderWidth: 2,
             };
             datasets_temp.push(temp);
@@ -70,11 +73,15 @@ export default function Graph({ region_1, region_2 }) {
         console.log("Fetch Error :-S", err);
       });
   }, [region_1]);
-  console.log(datasets);
   return (
     <Line
       data={{ datasets: datasets }}
       options={{
+        maintainAspectRatio: false,
+        responsive: true,
+        // legend: {
+        //   display: false,
+        // },
         title: {
           ticks: { source: "data" },
           display: true,
