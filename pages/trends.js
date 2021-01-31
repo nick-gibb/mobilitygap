@@ -29,7 +29,14 @@ export async function getStaticProps() {
 
 export default function Trends(props) {
   const [region_1, setRegion_1] = useState([]);
-  const [region_2, setRegion_2] = useState([]);
+  const [pois, setPois] = useState({
+    grocery_and_pharmacy_percent_change_from_baseline: false,
+    workplaces_percent_change_from_baseline: false,
+    residential_percent_change_from_baseline: true,
+    retail_and_recreation_percent_change_from_baseline: false,
+    transit_stations_percent_change_from_baseline: false,
+    workplaces_percent_change_from_baseline: false,
+  });
 
   const options = props["queryResult"].map((csd) => {
     return {
@@ -45,6 +52,18 @@ export default function Trends(props) {
       text: csd["sub_region_1"],
     };
   });
+
+  const handleCheck = (e, data) => {
+    const name = data.name;
+
+    setPois((prevState) => ({
+      ...prevState,
+      [name]: !prevState[name],
+    }));
+  };
+
+  // toggle = () =>
+  // this.setState((prevState) => ({ checked: !prevState.checked }));
 
   return (
     <Layout title={"Trends"}>
@@ -76,22 +95,47 @@ export default function Trends(props) {
             <label>Points-of-interest:</label>
           </Form.Field>
           <Form.Group inline>
-            <Form.Checkbox label="Retail" />
-            <Form.Checkbox label="Grocery and pharmacy" />
-            <Form.Checkbox label="Workplaces" />
-            <Form.Checkbox label="Residential" />
-            <Form.Checkbox label="Transit" />
+            <Form.Checkbox
+              name="retail_and_recreation_percent_change_from_baseline"
+              label="Retail"
+              checked={pois.retail_and_recreation_percent_change_from_baseline}
+              onChange={handleCheck}
+            />
+            <Form.Checkbox
+              name="grocery_and_pharmacy_percent_change_from_baseline"
+              checked={pois.grocery_and_pharmacy_percent_change_from_baseline}
+              onChange={handleCheck}
+              label="Grocery and pharmacy"
+            />
+            <Form.Checkbox
+              name="workplaces_percent_change_from_baseline"
+              label="Workplaces"
+              checked={pois.workplaces_percent_change_from_baseline}
+              onChange={handleCheck}
+            />
+            <Form.Checkbox
+              label="Residential"
+              name="residential_percent_change_from_baseline"
+              checked={pois.residential_percent_change_from_baseline}
+              onChange={handleCheck}
+            />
+            <Form.Checkbox
+              label="Transit"
+              name="transit_stations_percent_change_from_baseline"
+              checked={pois.transit_stations_percent_change_from_baseline}
+              onChange={handleCheck}
+            />
           </Form.Group>
 
           {/* grocery_and_pharmacy_percent_change_from_baseline: "#003f5c",
-  workplaces_percent_change_from_baseline: "#444e86",
-  residential_percent_change_from_baseline: "#955196",
+  : "#444e86",
+  : "#955196",
   retail_and_recreation_percent_change_from_baseline: "#dd5182",
-  transit_stations_percent_change_from_baseline: "#ff6e54",
+  : "#ff6e54",
   workplaces_percent_change_from_baseline: "#ffa600", */}
         </Form>
         <Container style={{ position: "relative", height: 400 }}>
-          <Graph region_1={region_1} />
+          <Graph region_1={region_1} pois={pois} />
         </Container>
       </Container>
     </Layout>

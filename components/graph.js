@@ -1,8 +1,7 @@
 import { defaults } from "react-chartjs-2";
 defaults.global.animation = false;
-import { Line } from "react-chartjs-2";
+import { Scatter } from "react-chartjs-2";
 import React, { useState, useEffect } from "react";
-import axios from "axios";
 
 const poi_colours = {
   grocery_and_pharmacy_percent_change_from_baseline: "#003f5c",
@@ -13,17 +12,35 @@ const poi_colours = {
   workplaces_percent_change_from_baseline: "#ffa600",
 };
 
+const poi_labels = {
+  grocery_and_pharmacy_percent_change_from_baseline: "Grocery and pharmacy",
+  workplaces_percent_change_from_baseline: "Workplaces",
+  residential_percent_change_from_baseline: "Residential",
+  retail_and_recreation_percent_change_from_baseline: "Retail and recreation",
+  transit_stations_percent_change_from_baseline: "Transit stations",
+  workplaces_percent_change_from_baseline: "Workplaces",
+};
+
 const pois = Object.keys(poi_colours);
 
-export default function Graph({ region_1 }) {
+export default function Graph({ region_1, pois }) {
   const [displaydata, setDisplaydata] = React.useState([]);
   const [datamart, setDatamart] = React.useState({});
 
   useEffect(() => {
+    let displayed_pois = Object.keys(
+      Object.keys(pois).reduce((o, key) => {
+        pois[key] !== false && (o[key] = pois[key]);
+        return o;
+      }, {})
+    );
+    console.log(displayed_pois);
+    const query_pois = "?pois=" + displayed_pois.join(",");
+    console.log(query_pois);
     const fetchData = async (region_list) => {
       setDisplaydata([]);
       const urls = region_list.map(
-        (region) => `api/google/sub_regions_1/${region}`
+        (region) => `api/google/sub_regions_1/${region}${query_pois}`
       );
       const json = (r) => r.json();
       const status = (r) =>
@@ -37,8 +54,8 @@ export default function Graph({ region_1 }) {
         const all_formatted_data = [];
         allData.forEach((regionData) => {
           const region_name = regionData[0]["sub_region_1"];
-          const formatted_region_data = pois.map((poi) => ({
-            label: `${poi} ${region_name}`,
+          const formatted_region_data = displayed_pois.map((poi) => ({
+            label: `${region_name} - ${poi_labels[poi]}`,
             region_name: region_name,
             poi: poi,
             data: [],
@@ -54,10 +71,8 @@ export default function Graph({ region_1 }) {
           regionData.forEach((datapoint) => {
             const datestamp = datapoint["date"]; // One date for many POI values
             let y;
-            pois.forEach((poi) => {
+            displayed_pois.forEach((poi) => {
               y = datapoint[poi];
-              //   label = region_labels[poi];
-
               formatted_region_data.forEach((poi_region, i) => {
                 if (poi_region["poi"] == poi) {
                   formatted_region_data[i]["data"].push({ t: datestamp, y: y });
@@ -109,10 +124,10 @@ export default function Graph({ region_1 }) {
     }
     console.log(datamart);
     // setDisplaydata(datamart);
-  }, [region_1]);
+  }, [region_1, pois]);
 
   return (
-    <Line
+    <Scatter
       data={{ datasets: displaydata }}
       options={{
         maintainAspectRatio: false,
