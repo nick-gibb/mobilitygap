@@ -41,7 +41,7 @@ export default function Graph({ region_1, pois }) {
     );
     const query_pois = "?pois=" + displayed_pois.join(",");
     const fetchData = async (region_list) => {
-      setDisplaydata([]);
+      // setDisplaydata([]);
       const urls = region_list.map(
         (region) => `api/google/sub_regions_1/${region}${query_pois}`
       );
@@ -53,8 +53,8 @@ export default function Graph({ region_1, pois }) {
         console.log("Whoops something went wrong!", e);
       };
       let datasets = [];
+      setDisplaydata([]);
       const consumeData = (allData) => {
-        const all_formatted_data = [];
         allData.forEach((regionData) => {
           const region_name = regionData[0]["sub_region_1"];
           const formatted_region_data = displayed_pois.map((poi) => ({
@@ -83,6 +83,7 @@ export default function Graph({ region_1, pois }) {
               });
             });
           });
+
           formatted_region_data.forEach((poi_region, i) => {
             setDisplaydata((oldArray) => [...oldArray, poi_region]);
           });
