@@ -46,6 +46,9 @@ export default function Trends(props) {
     };
   });
   const province_options = props["query_province_result"].map((csd) => {
+    if (csd["sub_region_1"] == "Ontario") {
+      console.log("FOUND IT!!");
+    }
     return {
       key: csd["sub_region_1"],
       value: csd["sub_region_1"],
@@ -126,13 +129,6 @@ export default function Trends(props) {
               onChange={handleCheck}
             />
           </Form.Group>
-
-          {/* grocery_and_pharmacy_percent_change_from_baseline: "#003f5c",
-  : "#444e86",
-  : "#955196",
-  retail_and_recreation_percent_change_from_baseline: "#dd5182",
-  : "#ff6e54",
-  workplaces_percent_change_from_baseline: "#ffa600", */}
         </Form>
         <Container style={{ position: "relative", height: 400 }}>
           <Graph region_1={region_1} pois={pois} />

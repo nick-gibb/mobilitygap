@@ -25,18 +25,21 @@ const pois = Object.keys(poi_colours);
 
 export default function Graph({ region_1, pois }) {
   const [displaydata, setDisplaydata] = React.useState([]);
-  const [datamart, setDatamart] = React.useState({});
 
   useEffect(() => {
+    console.log(region_1, pois);
+    if (region_1 === undefined || region_1.length == 0 || !pois) {
+      console.log("here we are!");
+      setDisplaydata([]);
+      return;
+    }
     let displayed_pois = Object.keys(
       Object.keys(pois).reduce((o, key) => {
         pois[key] !== false && (o[key] = pois[key]);
         return o;
       }, {})
     );
-    console.log(displayed_pois);
     const query_pois = "?pois=" + displayed_pois.join(",");
-    console.log(query_pois);
     const fetchData = async (region_list) => {
       setDisplaydata([]);
       const urls = region_list.map(
@@ -80,53 +83,22 @@ export default function Graph({ region_1, pois }) {
               });
             });
           });
-          console.log(formatted_region_data);
           formatted_region_data.forEach((poi_region, i) => {
             setDisplaydata((oldArray) => [...oldArray, poi_region]);
           });
-
-          // all_formatted_data.push(formatted_region_data);
-          // setDisplaydata((oldArray) => [...oldArray, formatted_region_data]);
         });
       };
 
       Promise.all(urls.map(toRequest)).then(consumeData).catch(onError);
-
-      //   const datasets_temp = [];
-      //   Object.keys(formatted_data).forEach((key) => {
-      //     const colour = poi_colours[key.split(" ")[0]];
-      //     const temp = {
-      //       data: formatted_data[key],
-      //       label: key,
-      //       borderColor: colour,
-      //       pointBorderColor: colour,
-      //       pointBackgroundColor: colour,
-      //       region: region,
-      //       pointHoverBackgroundColor: colour,
-      //       pointHoverBorderColor: colour,
-      //       fill: false,
-      //       pointRadius: 2,
-      //       borderWidth: 2,
-      //     };
-      //     datasets_temp.push(temp);
-      //   });
-      //   const test_obj = {};
-      //   test_obj[region] = data;
-
-      //   setDatamart((datamart) => ({
-      //     ...datamart,
-      //     [region]: datasets_temp,
-      //   }));
-      //   //   datamart1[region_1] = datasets_temp;
     };
     if (!(region_1 === undefined || region_1.length == 0)) {
       fetchData(region_1);
     }
-    console.log(datamart);
-    // setDisplaydata(datamart);
   }, [region_1, pois]);
 
-  return (
+  return displaydata.length == 0 ? (
+    ""
+  ) : (
     <Scatter
       data={{ datasets: displaydata }}
       options={{
@@ -135,7 +107,7 @@ export default function Graph({ region_1, pois }) {
 
         title: {
           ticks: { source: "data" },
-          display: true,
+          // display: true,
           text: "Mobility Trends",
         },
         scales: {
