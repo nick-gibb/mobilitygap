@@ -1,7 +1,7 @@
 import Layout from "../components/layout/layout";
 import Graph from "../components/graph";
 import React from "react";
-import { Container, Form, Checkbox } from "semantic-ui-react";
+import { Container, Form, Header } from "semantic-ui-react";
 import { useState } from "react";
 const database = require("../lib/db");
 const pgp = database.pgp;
@@ -49,7 +49,7 @@ export default function Trends(props) {
   return (
     <Layout title={"Trends"}>
       <Container text>
-        {/* <Header as="h1" content="Mobility Trends" /> */}
+        <Header as="h1" content="Mobility Trends" />
 
         <Form>
           <Form.Dropdown
@@ -57,12 +57,12 @@ export default function Trends(props) {
             label="Provinces"
             fluid
             multiple
-            onChange={(e, { value }) => setRegion_1([value])}
+            onChange={(e, { value }) => setRegion_1(value)}
             search
             selection
             options={province_options}
           />
-          <Form.Dropdown
+          {/* <Form.Dropdown
             placeholder="Search..."
             fluid
             multiple
@@ -71,11 +71,11 @@ export default function Trends(props) {
             label="Census subdivisions"
             selection
             options={options}
-          />
+          /> */}
+          <Form.Field>
+            <label>Points-of-interest:</label>
+          </Form.Field>
           <Form.Group inline>
-            <Form.Field>
-              <label>POIs:</label>
-            </Form.Field>
             <Form.Checkbox label="Retail" />
             <Form.Checkbox label="Grocery and pharmacy" />
             <Form.Checkbox label="Workplaces" />
@@ -91,7 +91,7 @@ export default function Trends(props) {
   workplaces_percent_change_from_baseline: "#ffa600", */}
         </Form>
         <Container style={{ position: "relative", height: 400 }}>
-          <Graph region_1={region_1} region_2={region_2} />
+          <Graph region_1={region_1} />
         </Container>
       </Container>
     </Layout>

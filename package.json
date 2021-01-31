@@ -8,6 +8,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "axios": "^0.21.1",
     "chart.js": "^2.9.4",
     "classnames": "^2.2.6",
     "date-fns": "^2.16.1",

@@ -2,6 +2,7 @@ import { defaults } from "react-chartjs-2";
 defaults.global.animation = false;
 import { Line } from "react-chartjs-2";
 import React, { useState, useEffect } from "react";
+import axios from "axios";
 
 const poi_colours = {
   grocery_and_pharmacy_percent_change_from_baseline: "#003f5c",
@@ -12,76 +13,111 @@ const poi_colours = {
   workplaces_percent_change_from_baseline: "#ffa600",
 };
 
-export default function Graph({ region_1, region_2 }) {
-  console.log(region_1);
-  console.log(region_2);
-  const [datasets, setDatasets] = React.useState([]);
+const pois = Object.keys(poi_colours);
+
+export default function Graph({ region_1 }) {
+  const [displaydata, setDisplaydata] = React.useState([]);
+  const [datamart, setDatamart] = React.useState({});
 
   useEffect(() => {
-    fetch(`api/google/sub_regions_1/Ontario`, {
-      mode: "no-cors",
-    })
-      .then(function (response) {
-        if (response.status !== 200) {
-          console.log(
-            "Looks like there was a problem. Status Code: " + response.status
-          );
-          return;
-        }
-
-        response.json().then(function (data) {
-          const formatted_data = {};
-          data.forEach((datapoint) => {
-            // const datestamp = new Date(datapoint["date"]).toDateString();
-            const datestamp = datapoint["date"];
-
-            let label;
+    const fetchData = async (region_list) => {
+      setDisplaydata([]);
+      const urls = region_list.map(
+        (region) => `api/google/sub_regions_1/${region}`
+      );
+      const json = (r) => r.json();
+      const status = (r) =>
+        r.ok ? Promise.resolve(r) : Promise.reject(new Error(r.statusText));
+      const toRequest = (url) => fetch(url).then(status).then(json);
+      const onError = (e) => {
+        console.log("Whoops something went wrong!", e);
+      };
+      let datasets = [];
+      const consumeData = (allData) => {
+        const all_formatted_data = [];
+        allData.forEach((regionData) => {
+          const region_name = regionData[0]["sub_region_1"];
+          const formatted_region_data = pois.map((poi) => ({
+            label: `${poi} ${region_name}`,
+            region_name: region_name,
+            poi: poi,
+            data: [],
+            borderColor: poi_colours[poi],
+            pointBorderColor: poi_colours[poi],
+            pointBackgroundColor: poi_colours[poi],
+            pointHoverBackgroundColor: poi_colours[poi],
+            pointHoverBorderColor: poi_colours[poi],
+            fill: false,
+            pointRadius: 2,
+            borderWidth: 2,
+          }));
+          regionData.forEach((datapoint) => {
+            const datestamp = datapoint["date"]; // One date for many POI values
             let y;
-
-            Object.keys(poi_colours).forEach((poi) => {
+            pois.forEach((poi) => {
               y = datapoint[poi];
-              label = poi + ` (${datapoint["sub_region_1"]})`;
+              //   label = region_labels[poi];
 
-              if (label in formatted_data) {
-                formatted_data[label].push({ t: datestamp, y: y });
-              } else {
-                formatted_data[label] = [{ t: datestamp, y: y }];
-              }
+              formatted_region_data.forEach((poi_region, i) => {
+                if (poi_region["poi"] == poi) {
+                  formatted_region_data[i]["data"].push({ t: datestamp, y: y });
+                }
+              });
             });
           });
-          const datasets_temp = [];
-          Object.keys(formatted_data).forEach((key) => {
-            const colour = poi_colours[key.split(" ")[0]];
-            const temp = {
-              data: formatted_data[key],
-              label: key,
-              borderColor: colour,
-              pointBorderColor: colour,
-              pointBackgroundColor: colour,
-              pointHoverBackgroundColor: colour,
-              pointHoverBorderColor: colour,
-              fill: false,
-              pointRadius: 2,
-              borderWidth: 2,
-            };
-            datasets_temp.push(temp);
+          console.log(formatted_region_data);
+          formatted_region_data.forEach((poi_region, i) => {
+            setDisplaydata((oldArray) => [...oldArray, poi_region]);
           });
-          setDatasets(datasets_temp);
+
+          // all_formatted_data.push(formatted_region_data);
+          // setDisplaydata((oldArray) => [...oldArray, formatted_region_data]);
         });
-      })
-      .catch(function (err) {
-        console.log("Fetch Error :-S", err);
-      });
+      };
+
+      Promise.all(urls.map(toRequest)).then(consumeData).catch(onError);
+
+      //   const datasets_temp = [];
+      //   Object.keys(formatted_data).forEach((key) => {
+      //     const colour = poi_colours[key.split(" ")[0]];
+      //     const temp = {
+      //       data: formatted_data[key],
+      //       label: key,
+      //       borderColor: colour,
+      //       pointBorderColor: colour,
+      //       pointBackgroundColor: colour,
+      //       region: region,
+      //       pointHoverBackgroundColor: colour,
+      //       pointHoverBorderColor: colour,
+      //       fill: false,
+      //       pointRadius: 2,
+      //       borderWidth: 2,
+      //     };
+      //     datasets_temp.push(temp);
+      //   });
+      //   const test_obj = {};
+      //   test_obj[region] = data;
+
+      //   setDatamart((datamart) => ({
+      //     ...datamart,
+      //     [region]: datasets_temp,
+      //   }));
+      //   //   datamart1[region_1] = datasets_temp;
+    };
+    if (!(region_1 === undefined || region_1.length == 0)) {
+      fetchData(region_1);
+    }
+    console.log(datamart);
+    // setDisplaydata(datamart);
   }, [region_1]);
+
   return (
     <Line
-      data={{ datasets: datasets }}
+      data={{ datasets: displaydata }}
       options={{
         maintainAspectRatio: false,
         responsive: true,
-        // legend: {
-        //   display: false,
-        // },
+
         title: {
           ticks: { source: "data" },
           display: true,
