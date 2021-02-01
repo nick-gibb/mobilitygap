@@ -91,7 +91,7 @@ export default function Graph({ region_1, pois }) {
       Promise.all(urls.map(toRequest)).then(consumeData).catch(onError);
     };
     if (!(region_1 === undefined || region_1.length == 0)) {
-      fetchData(region_1);
+      fetchData([region_1]);
     }
   }, [region_1, pois]);
 

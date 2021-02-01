@@ -76,12 +76,12 @@ export default function Trends(props) {
 
         <Form>
           <Form.Dropdown
-            placeholder="Search..."
+            // placeholder="Search..."
             label="Provinces"
             fluid
-            multiple
+            // multiple
             onChange={(e, { value }) => setRegion_1(value)}
-            search
+            // search
             selection
             options={province_options}
           />
