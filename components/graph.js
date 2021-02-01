@@ -26,7 +26,6 @@ export default function Graph({ region_1, pois }) {
   const [displaydata, setDisplaydata] = React.useState([]);
 
   useEffect(() => {
-    console.log(displaydata);
     if (region_1 === undefined || region_1.length == 0 || !pois) {
       setDisplaydata([]);
       return;
