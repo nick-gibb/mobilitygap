@@ -74,12 +74,12 @@ export default function Trends(props) {
         <Form>
           <Form.Dropdown
             // placeholder="Search..."
-            label="Provinces"
+            label="Province"
             fluid
             compact
             // multiple
             onChange={(e, { value }) => setRegion_1(value)}
-            // search
+            style={{ maxWidth: 300 }}
             selection
             value={region_1}
             options={province_options}
@@ -130,7 +130,7 @@ export default function Trends(props) {
             />
           </Form.Group>
         </Form>
-        <Container style={{ position: "relative", height: 400 }}>
+        <Container style={{ position: "relative", height: 460 }}>
           <Graph region_1={region_1} pois={pois} />
         </Container>
       </Container>
