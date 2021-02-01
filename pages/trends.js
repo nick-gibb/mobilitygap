@@ -29,7 +29,7 @@ export async function getStaticProps() {
 }
 
 export default function Trends(props) {
-  const [region_1, setRegion_1] = useState([]);
+  const [region_1, setRegion_1] = useState("Ontario");
   const [pois, setPois] = useState({
     grocery_and_pharmacy_percent_change_from_baseline: false,
     workplaces_percent_change_from_baseline: false,
@@ -80,6 +80,7 @@ export default function Trends(props) {
             onChange={(e, { value }) => setRegion_1(value)}
             // search
             selection
+            value={region_1}
             options={province_options}
           />
           {/* <Form.Dropdown
