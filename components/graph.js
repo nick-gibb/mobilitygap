@@ -111,6 +111,9 @@ export default function Graph({ region_1, pois }) {
         scales: {
           yAxes: [
             {
+              gridLines: {
+                zeroLineWidth: 3,
+              },
               scaleLabel: {
                 display: true,
                 labelString: "Mobility relative to baseline",
@@ -119,6 +122,9 @@ export default function Graph({ region_1, pois }) {
           ],
           xAxes: [
             {
+              gridLines: {
+                zeroLineWidth: 0.5,
+              },
               type: "time",
               time: {
                 unit: "month",

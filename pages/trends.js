@@ -76,6 +76,7 @@ export default function Trends(props) {
             // placeholder="Search..."
             label="Provinces"
             fluid
+            compact
             // multiple
             onChange={(e, { value }) => setRegion_1(value)}
             // search
