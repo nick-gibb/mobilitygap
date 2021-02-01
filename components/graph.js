@@ -24,18 +24,22 @@ const poi_labels = {
 
 export default function Graph({ region_1, pois }) {
   const [displaydata, setDisplaydata] = React.useState([]);
+  const [status, setStatus] = React.useState("Select province and POI");
 
   useEffect(() => {
-    if (region_1 === undefined || region_1.length == 0 || !pois) {
-      setDisplaydata([]);
-      return;
-    }
     let displayed_pois = Object.keys(
       Object.keys(pois).reduce((o, key) => {
         pois[key] !== false && (o[key] = pois[key]);
         return o;
       }, {})
     );
+    console.log(displayed_pois);
+    if (displayed_pois.length == 0) {
+      setDisplaydata([]);
+      setStatus("Select province and one or more points-of-interests");
+      return;
+    }
+
     const query_pois = "?pois=" + displayed_pois.join(",");
     const fetchData = async (region_list) => {
       // setDisplaydata([]);
@@ -49,8 +53,9 @@ export default function Graph({ region_1, pois }) {
       const onError = (e) => {
         console.log("Whoops something went wrong!", e);
       };
-      let datasets = [];
       setDisplaydata([]);
+      setStatus("Loading...");
+
       const consumeData = (allData) => {
         allData.forEach((regionData) => {
           const region_name = regionData[0]["sub_region_1"];
@@ -95,7 +100,7 @@ export default function Graph({ region_1, pois }) {
   }, [region_1, pois]);
 
   return displaydata.length == 0 ? (
-    ""
+    status
   ) : (
     <Scatter
       data={{ datasets: displaydata }}
