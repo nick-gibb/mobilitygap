@@ -1,6 +1,10 @@
 import Layout from "../components/layout/layout";
 import { Header, Icon, Container } from "semantic-ui-react";
 
+<script type="text/javascript" src="Chart.js"></script>
+
+<script type="text/javascript" src="chartjs-plugin-colorschemes.js"></script>
+
 export default function Home() {
   return (
     <Layout title={"Home"}>

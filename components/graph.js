@@ -1,8 +1,7 @@
 import { defaults } from "react-chartjs-2";
 defaults.global.animation = false;
 import { Scatter } from "react-chartjs-2";
-import React, { useState, useEffect } from "react";
-
+import React, { useEffect } from "react";
 const poi_colours = {
   grocery_and_pharmacy_percent_change_from_baseline: "#003f5c",
   workplaces_percent_change_from_baseline: "#444e86",
@@ -21,15 +20,14 @@ const poi_labels = {
   workplaces_percent_change_from_baseline: "Workplaces",
 };
 
-const pois = Object.keys(poi_colours);
+// const pois = Object.keys(poi_colours);
 
 export default function Graph({ region_1, pois }) {
   const [displaydata, setDisplaydata] = React.useState([]);
 
   useEffect(() => {
-    console.log(region_1, pois);
+    console.log(displaydata);
     if (region_1 === undefined || region_1.length == 0 || !pois) {
-      console.log("here we are!");
       setDisplaydata([]);
       return;
     }
@@ -112,6 +110,14 @@ export default function Graph({ region_1, pois }) {
           text: "Mobility Trends",
         },
         scales: {
+          yAxes: [
+            {
+              scaleLabel: {
+                display: true,
+                labelString: "Mobility relative to baseline",
+              },
+            },
+          ],
           xAxes: [
             {
               type: "time",

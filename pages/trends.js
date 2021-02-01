@@ -3,6 +3,7 @@ import Graph from "../components/graph";
 import React from "react";
 import { Container, Form, Header } from "semantic-ui-react";
 import { useState } from "react";
+
 const database = require("../lib/db");
 const pgp = database.pgp;
 const db = database.db;
@@ -71,7 +72,7 @@ export default function Trends(props) {
   return (
     <Layout title={"Trends"}>
       <Container text>
-        <Header as="h1" content="Mobility Trends" />
+        <Header as="h1" content="Google Mobility Trends" />
 
         <Form>
           <Form.Dropdown
