@@ -33,7 +33,6 @@ export default function Graph({ region_1, pois }) {
         return o;
       }, {})
     );
-    console.log(displayed_pois);
     if (displayed_pois.length == 0) {
       setDisplaydata([]);
       setStatus("Select province and one or more points-of-interests");
@@ -60,7 +59,7 @@ export default function Graph({ region_1, pois }) {
         allData.forEach((regionData) => {
           const region_name = regionData[0]["sub_region_1"];
           const formatted_region_data = displayed_pois.map((poi) => ({
-            label: `${region_name} - ${poi_labels[poi]}`,
+            label: poi_labels[poi],
             region_name: region_name,
             poi: poi,
             data: [],
@@ -110,8 +109,8 @@ export default function Graph({ region_1, pois }) {
 
         title: {
           ticks: { source: "data" },
-          // display: true,
-          text: "Mobility Trends",
+          display: true,
+          text: `${region_1} Mobility`,
         },
         scales: {
           yAxes: [
