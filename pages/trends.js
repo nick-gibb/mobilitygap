@@ -1,8 +1,22 @@
 import Layout from "../components/layout/layout";
 import Graph from "../components/graph";
 import React from "react";
-import { Container, Form, Header } from "semantic-ui-react";
+import { Container, Form } from "semantic-ui-react";
 import { useState } from "react";
+import { Breadcrumb } from "semantic-ui-react";
+import PageTitle from "../components/title";
+
+import Link from "next/link";
+
+const BreadcrumbExample = () => (
+  <Breadcrumb>
+    <Link href="/" passHref>
+      <Breadcrumb.Section>Home</Breadcrumb.Section>
+    </Link>
+    <Breadcrumb.Divider />
+    <Breadcrumb.Section active>Trends</Breadcrumb.Section>
+  </Breadcrumb>
+);
 
 const database = require("../lib/db");
 const pgp = database.pgp;
@@ -69,7 +83,8 @@ export default function Trends(props) {
   return (
     <Layout title={"Trends"}>
       <Container text>
-        <Header as="h1" content="Google Mobility Trends" />
+        <BreadcrumbExample />
+        <PageTitle titleText="Google Mobility Trends" subheader="" />
 
         <Form>
           <Form.Dropdown

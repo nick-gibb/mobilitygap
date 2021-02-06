@@ -1,2 +1,7 @@
-const PageTitle = ({ titleText }) => <h3>{titleText}</h3>;
+import { Header } from "semantic-ui-react";
+
+const PageTitle = ({ titleText, subheader }) => (
+  <Header as="h2" content={titleText} dividing subheader={subheader} />
+);
+
 export default PageTitle;

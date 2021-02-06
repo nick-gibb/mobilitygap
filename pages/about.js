@@ -1,11 +1,25 @@
 import Layout from "../components/layout/layout";
 import { Container, List, Divider, Header, Image } from "semantic-ui-react";
+import { Breadcrumb } from "semantic-ui-react";
+import Link from "next/link";
+import PageTitle from "../components/title";
+
+const BreadcrumbExample = () => (
+  <Breadcrumb>
+    <Link href="/" passHref>
+      <Breadcrumb.Section>Home</Breadcrumb.Section>
+    </Link>
+    <Breadcrumb.Divider />
+    <Breadcrumb.Section active>About</Breadcrumb.Section>
+  </Breadcrumb>
+);
 
 export default function About() {
   return (
     <Layout title={"About"}>
       <Container text>
-        <Header as="h1" content="About" />
+        <BreadcrumbExample />
+        <PageTitle titleText="About" subheader="" />
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
         tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
         veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea

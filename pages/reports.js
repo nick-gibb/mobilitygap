@@ -23,7 +23,6 @@ const BreadcrumbExample = () => (
       <Breadcrumb.Section>Home</Breadcrumb.Section>
     </Link>
     <Breadcrumb.Divider />
-
     <Breadcrumb.Section active>Reports</Breadcrumb.Section>
   </Breadcrumb>
 );
@@ -42,8 +41,11 @@ export default function RegionalReports({ sortedRegions }) {
     <Layout title={"Regional Reports"}>
       <Container text>
         <BreadcrumbExample />
-        <PageTitle titleText="Mobility Gap Regional Reports" />
-        Generated every Sunday
+        <PageTitle
+          titleText="Mobility Gap Regional Reports"
+          subheader="Generated every Sunday"
+        />
+
         <List divided>{regionLinks}</List>
       </Container>
     </Layout>

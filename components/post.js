@@ -3,7 +3,7 @@ import { Container } from "semantic-ui-react";
 import Date from "./date";
 import { Breadcrumb } from "semantic-ui-react";
 import Link from "next/link";
-import PageTitle from "./title";
+// import PageTitle from "./title";
 import { regionPaths, regionNames } from "./constants";
 
 const BreadcrumbExample = ({ regionName, reportDate }) => (
