@@ -29,7 +29,7 @@ export default function Post({ postData, region }) {
 
         {/* <PageTitle titleText={postData.title} /> */}
         <h2>
-          Estimates of mobility and the required mobility to control COVID-19 in
+          Estimates of mobility and the required mobility to control COVID-19 in{" "}
           {regionNames[region]}{" "}
         </h2>
         <h3>
