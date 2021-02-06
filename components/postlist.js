@@ -24,7 +24,7 @@ export default function postlist({ allPostsData, region }) {
         <section>
           <BreadcrumbExample regionName={regionName} />
           {/* <PageTitle titleText={`${regionName} Reports`} /> */}
-          <List>
+          <List divided>
             {allPostsData.map(({ id, date, title }) => (
               <ListItem
                 key={id}

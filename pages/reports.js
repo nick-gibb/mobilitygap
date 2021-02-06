@@ -27,11 +27,9 @@ export default function RegionalReports({ sortedRegions }) {
   const regionLinks = sortedRegions.map((region) => {
     const prefix = region == "ca" ? "/" : "/ca/";
     return (
-      <List key={region}>
-        <Link href={prefix + region} passHref>
-          <List.Item>{regionNames[region]}</List.Item>
-        </Link>
-      </List>
+      <Link href={prefix + region} passHref>
+        <List.Item>{regionNames[region]}</List.Item>
+      </Link>
     );
   });
 
@@ -40,8 +38,7 @@ export default function RegionalReports({ sortedRegions }) {
       <Container text>
         <BreadcrumbExample />
         {/* <PageTitle titleText="Mobility Gap Regional Reports" /> */}
-
-        {regionLinks}
+        <List divided>{regionLinks}</List>
       </Container>
     </Layout>
   );
