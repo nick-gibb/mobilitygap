@@ -3,11 +3,16 @@ import ListItem from "./listitem";
 import { Container, List } from "semantic-ui-react";
 import Link from "next/link";
 import { Breadcrumb } from "semantic-ui-react";
-// import PageTitle from "./title";
+import PageTitle from "./title";
 import { regionNames } from "./constants";
 
 const BreadcrumbExample = ({ regionName }) => (
   <Breadcrumb>
+    <Link href="/" passHref>
+      <Breadcrumb.Section>Home</Breadcrumb.Section>
+    </Link>
+    <Breadcrumb.Divider />
+
     <Link href="/reports" passHref>
       <Breadcrumb.Section>Reports</Breadcrumb.Section>
     </Link>
@@ -23,7 +28,7 @@ export default function postlist({ allPostsData, region }) {
       <Container text>
         <section>
           <BreadcrumbExample regionName={regionName} />
-          {/* <PageTitle titleText={`${regionName} Reports`} /> */}
+          <PageTitle titleText={`Mobility Gap Reports: ${regionName}`} />
           <List divided>
             {allPostsData.map(({ id, date, title }) => (
               <ListItem

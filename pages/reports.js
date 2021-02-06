@@ -19,6 +19,11 @@ export async function getStaticProps() {
 
 const BreadcrumbExample = () => (
   <Breadcrumb>
+    <Link href="/" passHref>
+      <Breadcrumb.Section>Home</Breadcrumb.Section>
+    </Link>
+    <Breadcrumb.Divider />
+
     <Breadcrumb.Section active>Reports</Breadcrumb.Section>
   </Breadcrumb>
 );
@@ -37,7 +42,8 @@ export default function RegionalReports({ sortedRegions }) {
     <Layout title={"Regional Reports"}>
       <Container text>
         <BreadcrumbExample />
-        {/* <PageTitle titleText="Mobility Gap Regional Reports" /> */}
+        <PageTitle titleText="Mobility Gap Regional Reports" />
+        Generated every Sunday
         <List divided>{regionLinks}</List>
       </Container>
     </Layout>
