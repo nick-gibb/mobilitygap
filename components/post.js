@@ -21,15 +21,21 @@ const BreadcrumbExample = ({ regionName, reportDate }) => (
 );
 
 export default function Post({ postData, region }) {
+  console.log(postData);
   return (
     <Layout title={postData.title}>
       <Container text>
         <BreadcrumbExample regionName={region} reportDate={postData.date} />
 
-        <PageTitle titleText={postData.title} />
-        <h4>
+        {/* <PageTitle titleText={postData.title} /> */}
+        <h2>
+          Estimates of mobility and the required mobility to control COVID-19 in
+          {regionNames[region]}{" "}
+        </h2>
+        <h3>
+          {" "}
           <Date dateString={postData.date} />
-        </h4>
+        </h3>
         <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
       </Container>
     </Layout>

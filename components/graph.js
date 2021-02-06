@@ -24,7 +24,7 @@ const poi_labels = {
 
 export default function Graph({ region_1, pois }) {
   const [displaydata, setDisplaydata] = React.useState([]);
-  const [status, setStatus] = React.useState("Select province and POI");
+  const [status, setStatus] = React.useState("");
 
   useEffect(() => {
     let displayed_pois = Object.keys(
@@ -35,7 +35,7 @@ export default function Graph({ region_1, pois }) {
     );
     if (displayed_pois.length == 0) {
       setDisplaydata([]);
-      setStatus("Select province and one or more points-of-interests");
+      setStatus("Select one or more points-of-interests");
       return;
     }
 
