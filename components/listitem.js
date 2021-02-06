@@ -9,10 +9,10 @@ export default function ListItem({ id, title, date, region }) {
     <List.Item key={id}>
       <Link href={postLink}>
         <a>
-          <List.Content floated="right">
+          <List.Content>
             <Date dateString={date} />
           </List.Content>
-          <List.Content>{title}</List.Content>
+          {/* <List.Content>{title}</List.Content> */}
         </a>
       </Link>
     </List.Item>

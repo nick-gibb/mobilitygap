@@ -21,7 +21,6 @@ const BreadcrumbExample = ({ regionName, reportDate }) => (
 );
 
 export default function Post({ postData, region }) {
-  console.log(postData);
   return (
     <Layout title={postData.title}>
       <Container text>
