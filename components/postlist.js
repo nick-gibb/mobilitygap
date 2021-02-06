@@ -12,7 +12,6 @@ const BreadcrumbExample = ({ regionName }) => (
       <Breadcrumb.Section>Home</Breadcrumb.Section>
     </Link>
     <Breadcrumb.Divider />
-
     <Link href="/reports" passHref>
       <Breadcrumb.Section>Reports</Breadcrumb.Section>
     </Link>

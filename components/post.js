@@ -8,6 +8,10 @@ import { regionPaths, regionNames } from "./constants";
 
 const BreadcrumbExample = ({ regionName, reportDate }) => (
   <Breadcrumb>
+    <Link href="/" passHref>
+      <Breadcrumb.Section>Home</Breadcrumb.Section>
+    </Link>
+    <Breadcrumb.Divider />
     <Link href="/reports" passHref>
       <Breadcrumb.Section>Reports</Breadcrumb.Section>
     </Link>
