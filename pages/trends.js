@@ -84,7 +84,10 @@ export default function Trends(props) {
     <Layout title={"Trends"}>
       <Container text>
         <BreadcrumbExample />
-        <PageTitle titleText="Google Mobility Trends" subheader="" />
+        <PageTitle
+          titleText="Mobility Trends"
+          subheader="Data Source: Google"
+        />
 
         <Form>
           <Form.Dropdown
