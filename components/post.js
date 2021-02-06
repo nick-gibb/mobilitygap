@@ -3,7 +3,7 @@ import { Container } from "semantic-ui-react";
 import Date from "./date";
 import { Breadcrumb } from "semantic-ui-react";
 import Link from "next/link";
-// import PageTitle from "./title";
+import PageTitle from "./title";
 import { regionPaths, regionNames } from "./constants";
 
 const BreadcrumbExample = ({ regionName, reportDate }) => (
@@ -30,11 +30,10 @@ export default function Post({ postData, region }) {
       <Container text>
         <BreadcrumbExample regionName={region} reportDate={postData.date} />
 
-        {/* <PageTitle titleText={postData.title} /> */}
-        <h2>
-          Estimates of mobility and the required mobility to control COVID-19 in{" "}
-          {regionNames[region]}{" "}
-        </h2>
+        <PageTitle
+          titleText={`Estimates of mobility and the required mobility to control COVID-19 in ${regionNames[region]}`}
+        />
+
         <h3>
           {" "}
           <Date dateString={postData.date} />
