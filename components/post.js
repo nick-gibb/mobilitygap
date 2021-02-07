@@ -47,8 +47,7 @@ export default function Post({ postData, region }) {
               img: {
                 component: Image,
                 props: {
-                  height: 500,
-                  width: 500,
+                  layout: "responsive",
                 },
               },
             },
