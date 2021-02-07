@@ -47,7 +47,7 @@ export default function About() {
               <Item.Group>
                 <Item>
                   <Item.Image avatar src="/kevin.jpg" size="tiny" />
-                  <Item.Content>
+                  <Item.Content verticalAlign="middle">
                     <Item.Header>Kevin Brown</Item.Header>
                     <Item.Description>University of Toronto</Item.Description>
                     <Icon name="linkify" />
@@ -57,28 +57,8 @@ export default function About() {
                   </Item.Content>
                 </Item>
                 <Item>
-                  <Item.Image avatar src="/dmacfadden.jpg" size="tiny" />
-                  <Item.Content>
-                    <Item.Header>Derek MacFadden</Item.Header>
-                    <Item.Description>The Ottawa Hospital</Item.Description>
-                  </Item.Content>
-                </Item>
-                <Item>
-                  <Item.Image avatar src="/ndaneman.jpg" size="tiny" />
-                  <Item.Content>
-                    <Item.Header>Nick Daneman</Item.Header>
-                    <Item.Description>
-                      SunnyBrook Research Institute
-                    </Item.Description>
-                    <Icon name="linkify" />
-                    <a href="https://sunnybrook.ca/research/team/member.asp?t=10&page=172&m=287">
-                      sunnybrook.ca/research/team/member.asp?t=10&page=172&m=287
-                    </a>
-                  </Item.Content>
-                </Item>
-                <Item>
                   <Item.Image avatar src="jp.jpg" size="tiny" />
-                  <Item.Content>
+                  <Item.Content verticalAlign="middle">
                     <Item.Header>Jean-Paul Soucy</Item.Header>
                     <Item.Description>University of Toronto</Item.Description>
                     <Icon name="linkify" />
@@ -90,13 +70,33 @@ export default function About() {
                     <a href="https://www.twitter.com/jpsoucy">jpsoucy</a>
                   </Item.Content>
                 </Item>
+                <Item>
+                  <Item.Image avatar src="/dmacfadden.jpg" size="tiny" />
+                  <Item.Content verticalAlign="middle">
+                    <Item.Header>Derek MacFadden</Item.Header>
+                    <Item.Description>The Ottawa Hospital</Item.Description>
+                  </Item.Content>
+                </Item>
+                <Item>
+                  <Item.Image avatar src="/ndaneman.jpg" size="tiny" />
+                  <Item.Content verticalAlign="middle">
+                    <Item.Header>Nick Daneman</Item.Header>
+                    <Item.Description>
+                      SunnyBrook Research Institute
+                    </Item.Description>
+                    <Icon name="linkify" />
+                    <a href="https://sunnybrook.ca/research/team/member.asp?t=10&page=172&m=287">
+                      sunnybrook.ca/research/team/member.asp?t=10&page=172&m=287
+                    </a>
+                  </Item.Content>
+                </Item>
               </Item.Group>
             </Grid.Column>
             <Grid.Column>
               <Item.Group>
                 <Item>
                   <Item.Image avatar src="/me.jpg" size="tiny" />
-                  <Item.Content>
+                  <Item.Content verticalAlign="middle">
                     <Item.Header>Nicholas Gibb</Item.Header>
                     <Item.Description>
                       Public Health Agency of Canada
@@ -109,9 +109,9 @@ export default function About() {
                 </Item>
                 <Item>
                   <Item.Image avatar src="/sbuchan.jpg" size="tiny" />
-                  <Item.Content>
+                  <Item.Content verticalAlign="middle">
                     <Item.Header>Sarah Buchan</Item.Header>
-                    <Item.Description>Sinai Health</Item.Description>
+                    <Item.Description>University of Toronto</Item.Description>
                     <Icon name="linkify" />
                     <a href="https://www.dlsph.utoronto.ca/faculty-profile/buchan-sarah/">
                       dlsph.utoronto.ca/faculty-profile/buchan-sarah/
@@ -120,7 +120,7 @@ export default function About() {
                 </Item>
                 <Item>
                   <Item.Image avatar src="/sturrock.jpg" size="tiny" />
-                  <Item.Content>
+                  <Item.Content verticalAlign="middle">
                     <Item.Header>Shelby Sturrock</Item.Header>
                     <Item.Description>University of Toronto</Item.Description>
                     <Icon name="twitter" />
@@ -135,7 +135,7 @@ export default function About() {
               <Item.Group>
                 <Item>
                   <Image avatar src="/amir.jpg" size="tiny" />
-                  <Item.Content>
+                  <Item.Content verticalAlign="middle">
                     <Item.Header>Amir Ghasemi</Item.Header>
                     <Item.Description>
                       Communications Research Centre
@@ -144,7 +144,7 @@ export default function About() {
                 </Item>
                 <Item>
                   <Image avatar src="/isha.jpg" size="tiny" />
-                  <Item.Content>
+                  <Item.Content verticalAlign="middle">
                     <Item.Header>Isha Berry</Item.Header>
                     <Item.Description>University of Toronto</Item.Description>
                     <Icon name="twitter" />
@@ -154,7 +154,7 @@ export default function About() {
 
                 <Item>
                   <Item.Image avatar src="/nstall.jpg" size="tiny" />
-                  <Item.Content>
+                  <Item.Content verticalAlign="middle">
                     <Item.Header>Nathan Stall</Item.Header>
                     <Item.Description>Sinai Health</Item.Description>
                     <Icon name="twitter" />
