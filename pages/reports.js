@@ -31,7 +31,7 @@ export default function RegionalReports({ sortedRegions }) {
   const regionLinks = sortedRegions.map((region) => {
     const prefix = region == "ca" ? "/" : "/ca/";
     return (
-      <Link href={prefix + region} passHref>
+      <Link key={region} href={prefix + region} passHref>
         <List.Item>{regionNames[region]}</List.Item>
       </Link>
     );

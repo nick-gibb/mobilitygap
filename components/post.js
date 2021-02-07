@@ -32,6 +32,7 @@ export default function Post({ postData, region }) {
   const date = format(parseISO(postData.date), "LLLL d, yyyy");
   // <time dateTime={postData.date}>{date}</time>
 
+  // console.log(postData.contentHtml);
   return (
     <Layout title={postData.title}>
       <Container text>

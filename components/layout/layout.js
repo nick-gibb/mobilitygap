@@ -3,9 +3,14 @@ import Head from "next/head";
 import TopMenu from "./menu";
 import { Container, Segment, List } from "semantic-ui-react";
 
-export default function Layout({ children, title }) {
+export default function Layout({
+  children,
+  title,
+  img_url = "https://mobilitygap.ca/figures/ca/2021-02-06/mobility_byMonth.png",
+}) {
   console.log(title);
   let pagetitle = "Mobility Gap";
+
   if (title != "") {
     pagetitle = `Mobility Gap - ${title}`;
   }
@@ -14,11 +19,7 @@ export default function Layout({ children, title }) {
       <Head>
         <title>{pagetitle}</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-        <meta
-          key="og:image"
-          name="og:image"
-          content="https://mobilitygap.ca/figures/ca/2021-02-06/mobility_byMonth.png"
-        />
+        <meta key="og:image" name="og:image" content={img_url} />
 
         <meta
           name="description"

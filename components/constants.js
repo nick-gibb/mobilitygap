@@ -15,7 +15,7 @@ export const regionNames = {
   ca: "Canada",
   ab: "Alberta",
   mb: "Manitoba",
-  bc: "British Colombia",
+  bc: "British Columbia",
   sk: "Saskatchewan",
   qc: "Quebec",
   on: "Ontario",
