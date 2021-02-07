@@ -1,10 +1,11 @@
 import Layout from "./layout/layout";
-import { Container } from "semantic-ui-react";
+import { Container, Breadcrumb } from "semantic-ui-react";
 // import Date from "./date";
-import { Breadcrumb } from "semantic-ui-react";
+import Image from "next/image";
 import Link from "next/link";
 import PageTitle from "./title";
 import { regionPaths, regionNames } from "./constants";
+import Markdown from "markdown-to-jsx";
 
 import { parseISO, format } from "date-fns";
 
@@ -27,6 +28,7 @@ const BreadcrumbExample = ({ regionName, reportDate }) => (
 );
 
 export default function Post({ postData, region }) {
+  // console.log(postData.contentHtml);
   const date = format(parseISO(postData.date), "LLLL d, yyyy");
   // <time dateTime={postData.date}>{date}</time>
 
@@ -39,7 +41,22 @@ export default function Post({ postData, region }) {
           titleText={`Estimates of mobility and the required mobility to control COVID-19 in ${regionNames[region]}`}
           subheader={date}
         />
-        <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
+        <Markdown
+          options={{
+            overrides: {
+              img: {
+                component: Image,
+                props: {
+                  height: 500,
+                  width: 500,
+                },
+              },
+            },
+          }}
+        >
+          {postData.contentHtml}
+        </Markdown>
+        {/* <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} /> */}
       </Container>
     </Layout>
   );
