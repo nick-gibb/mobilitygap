@@ -46,7 +46,7 @@ export default function RegionalReports({ sortedRegions }) {
           subheader="Generated every Sunday"
         />
 
-        <List divided>{regionLinks}</List>
+        <List>{regionLinks}</List>
       </Container>
     </Layout>
   );
