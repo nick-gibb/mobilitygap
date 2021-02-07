@@ -47,8 +47,8 @@ export default function Research() {
           Sturrock, Isha Berry, Nathan M. Stall, Peter Juni, Amir Ghasemi,
           Nicholas Gibb, Derek R. MacFadden, Nick Daneman{" "}
         </p>
-        <p>Manuscript under review.</p>
-        <Divider />
+        <p>Manuscript under review</p>
+        {/* <Divider /> */}
         <Link
           href="https://www.medrxiv.org/content/10.1101/2020.04.05.20054288v3"
           target="_blank"
@@ -65,8 +65,7 @@ export default function Research() {
           Jean-Paul R. Soucy, Shelby L. Sturrock, Isha Berry, Duncan J.
           Westwood, Nick Daneman, Derek R. MacFadden, Kevin A. Brown
         </p>
-        <p>MedRxiv</p>
-        <p>May 24, 2020</p>
+        <p>MedRxiv, May 24 2020</p>
       </Container>
     </Layout>
   );
