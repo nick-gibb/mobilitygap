@@ -98,9 +98,7 @@ export default function About() {
                   <Item.Image avatar src="/me.jpg" size="tiny" />
                   <Item.Content verticalAlign="middle">
                     <Item.Header>Nicholas Gibb</Item.Header>
-                    <Item.Description>
-                      Public Health Agency of Canada
-                    </Item.Description>
+
                     <Icon name="twitter" />
                     <a href="https://www.twitter.com/gibbnicholas">
                       gibbnicholas
