@@ -81,7 +81,7 @@ export default function Trends(props) {
   // this.setState((prevState) => ({ checked: !prevState.checked }));
 
   return (
-    <Layout title={"Trends"}>
+    <Layout title={"Mobility Trends"}>
       <Container text>
         <BreadcrumbExample />
         <PageTitle

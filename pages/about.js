@@ -25,7 +25,7 @@ const BreadcrumbExample = () => (
 
 export default function About() {
   return (
-    <Layout title={"About"}>
+    <Layout title="Mobility Gap - About">
       <Container>
         <BreadcrumbExample />
         <PageTitle titleText="Mobility Gap Team" subheader="" />

@@ -51,7 +51,7 @@ export default function RegionalReports({ sortedRegions }) {
   );
 
   return (
-    <Layout title={"Regional Reports"}>
+    <Layout title={"Mobility Gap Regional Reports"}>
       <Container text>
         <BreadcrumbExample />
         <PageTitle

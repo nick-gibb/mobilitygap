@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export default function Home() {
   return (
-    <Layout title={""}>
+    <Layout title="Mobility Gap">
       <Container text>
         <Header as="h2" icon textAlign="center">
           <Icon name="street view" circular />

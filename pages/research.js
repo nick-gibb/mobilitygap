@@ -22,7 +22,7 @@ const BreadcrumbExample = () => (
 
 export default function Research() {
   return (
-    <Layout title={"Research"}>
+    <Layout title={"Mobility Research"}>
       <Container text>
         <BreadcrumbExample />
         <PageTitle

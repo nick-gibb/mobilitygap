@@ -9,14 +9,10 @@ export default function Layout({
   img_url = "https://mobilitygap.ca/figures/ca/2021-02-07/mobilityAlone_1yr.png",
   description = "Real-time information on cellular phone mobility measures and how they relate to COVID-19 transmission.",
 }) {
-  let pagetitle = "Mobility Gap";
-  if (title != "") {
-    pagetitle = title;
-  }
   return (
     <div>
       <Head>
-        <title>{pagetitle}</title>
+        <title>{title}</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
         <meta key="og:image" name="og:image" content={img_url} />
 
@@ -24,7 +20,7 @@ export default function Layout({
 
         <meta property="og:url" content="https://mobilitygap.ca/" />
         <meta property="og:type" content="website" />
-        <meta property="og:title" content={pagetitle} />
+        <meta property="og:title" content={title} />
         <meta property="og:description" content={description} />
         <meta
           property="og:image"
@@ -34,7 +30,7 @@ export default function Layout({
         <meta name="twitter:card" content="summary_large_image" />
         <meta property="twitter:domain" content="mobilitygap.ca" />
         <meta property="twitter:url" content="https://mobilitygap.ca/" />
-        <meta name="twitter:title" content={pagetitle} />
+        <meta name="twitter:title" content={title} />
         <meta name="twitter:description" content={description} />
         <meta
           name="twitter:image"
