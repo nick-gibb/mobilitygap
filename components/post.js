@@ -36,7 +36,7 @@ export default function Post({ postData, region }) {
   return (
     <Layout
       title={postData.date}
-      img_url={`"https://mobilitygap.ca${postData.og_img}`}
+      img_url={`https://mobilitygap.ca${postData.og_img}`}
     >
       <Container text>
         <BreadcrumbExample regionName={region} reportDate={postData.date} />
