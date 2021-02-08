@@ -35,16 +35,14 @@ export default function Post({ postData, region }) {
   // console.log(postData.contentHtml);
   return (
     <Layout
-      title={postData.date}
+      title={postData.og_title}
       img_url={`https://mobilitygap.ca${postData.og_img}`}
+      description={postData.og_description}
     >
       <Container text>
         <BreadcrumbExample regionName={region} reportDate={postData.date} />
 
-        <PageTitle
-          titleText={`Estimates of mobility and the required mobility to control COVID-19 in ${regionNames[region]}`}
-          subheader={date}
-        />
+        <PageTitle titleText={postData.og_description} subheader={date} />
         <Markdown
           options={{
             overrides: {
