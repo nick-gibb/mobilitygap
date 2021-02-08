@@ -23,7 +23,7 @@ const BreadcrumbExample = ({ regionName }) => (
 export default function postlist({ allPostsData, region }) {
   const regionName = regionNames[region];
   return (
-    <Layout title={regionName}>
+    <Layout title={`Mobility Gap Reports: ${regionName}`}>
       <Container text>
         <section>
           <BreadcrumbExample regionName={regionName} />
