@@ -40,7 +40,7 @@ export default function RegionalReports({ sortedRegions }) {
       {sortedRegions.map((region) => {
         const prefix = region == "ca" ? "/" : "/ca/";
         return (
-          <Grid.Column width={3}>
+          <Grid.Column width={4}>
             <Link key={region} href={prefix + region}>
               <a>{regionNames[region]}</a>
             </Link>
