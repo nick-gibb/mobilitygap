@@ -6,7 +6,7 @@ import { Container, Segment, List } from "semantic-ui-react";
 export default function Layout({
   children,
   title,
-  img_url = "https://mobilitygap.ca/figures/ca/2021-02-07/mobilityAlone_1yr.png",
+  img_url = "https://mobilitygap.ca/og_img.png",
   description = "Real-time information on cellular phone mobility measures and how they relate to COVID-19 transmission.",
 }) {
   return (
@@ -22,20 +22,14 @@ export default function Layout({
         <meta property="og:type" content="website" />
         <meta property="og:title" content={title} />
         <meta property="og:description" content={description} />
-        <meta
-          property="og:image"
-          content="https://mobilitygap.ca/figures/ca/2021-02-06/mobility_byMonth.png"
-        />
+        <meta property="og:image" content={img_url} />
 
         <meta name="twitter:card" content="summary_large_image" />
         <meta property="twitter:domain" content="mobilitygap.ca" />
         <meta property="twitter:url" content="https://mobilitygap.ca/" />
         <meta name="twitter:title" content={title} />
         <meta name="twitter:description" content={description} />
-        <meta
-          name="twitter:image"
-          content="https://mobilitygap.ca/figures/ca/2021-02-06/mobility_byMonth.png"
-        />
+        <meta name="twitter:image" content={img_url} />
       </Head>
       <TopMenu />
 
