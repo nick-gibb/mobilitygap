@@ -8,9 +8,7 @@ export default function Layout({
   title,
   img_url = "https://mobilitygap.ca/figures/ca/2021-02-06/mobility_byMonth.png",
 }) {
-  console.log(title);
   let pagetitle = "Mobility Gap";
-
   if (title != "") {
     pagetitle = `Mobility Gap - ${title}`;
   }

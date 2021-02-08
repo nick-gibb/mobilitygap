@@ -34,7 +34,7 @@ export default function Post({ postData, region }) {
 
   // console.log(postData.contentHtml);
   return (
-    <Layout title={postData.title}>
+    <Layout title={postData.date} img_url={postData.og_img}>
       <Container text>
         <BreadcrumbExample regionName={region} reportDate={postData.date} />
 
