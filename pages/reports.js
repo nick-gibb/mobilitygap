@@ -1,10 +1,8 @@
 import Layout from "../components/layout/layout";
 import React from "react";
-import { Container, List } from "semantic-ui-react";
+import { Container, List, Grid, Breadcrumb } from "semantic-ui-react";
 import { getSortedRegions } from "../lib/posts";
 import Link from "next/link";
-import { Breadcrumb } from "semantic-ui-react";
-
 import PageTitle from "../components/title";
 import { regionNames } from "../components/constants";
 
@@ -37,6 +35,21 @@ export default function RegionalReports({ sortedRegions }) {
     );
   });
 
+  const RegionList2 = () => (
+    <Grid doubling stackable>
+      {sortedRegions.map((region) => {
+        const prefix = region == "ca" ? "/" : "/ca/";
+        return (
+          <Grid.Column width={3}>
+            <Link key={region} href={prefix + region}>
+              <a>{regionNames[region]}</a>
+            </Link>
+          </Grid.Column>
+        );
+      })}
+    </Grid>
+  );
+
   return (
     <Layout title={"Regional Reports"}>
       <Container text>
@@ -46,7 +59,8 @@ export default function RegionalReports({ sortedRegions }) {
           subheader="Generated every Sunday"
         />
 
-        <List>{regionLinks}</List>
+        {/* <List>{regionLinks}</List> */}
+        <RegionList2 />
       </Container>
     </Layout>
   );
