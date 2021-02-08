@@ -6,7 +6,7 @@ import { Container, Segment, List } from "semantic-ui-react";
 export default function Layout({
   children,
   title,
-  img_url = "https://mobilitygap.ca/figures/ca/2021-02-06/mobility_byMonth.png",
+  img_url = "https://mobilitygap.ca/figures/ca/2021-02-07/mobilityAlone_1yr.png",
 }) {
   let pagetitle = "Mobility Gap";
   if (title != "") {
