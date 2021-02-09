@@ -14,7 +14,7 @@ export default function Home() {
               alt="Mobility Gap Logo"
               width={263}
               height={298}
-              responsive
+              responsive="true"
               style={{
                 margin: "0 auto",
               }}
