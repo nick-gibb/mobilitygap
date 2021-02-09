@@ -6,7 +6,7 @@ import { Container, Segment, List } from "semantic-ui-react";
 export default function Layout({
   children,
   title,
-  img_url = "https://mobilitygap.ca/og_img.png",
+  img_url = "https://mobilitygap.ca/mglogo.png",
   description = "Real-time information on cellular phone mobility measures and how they relate to COVID-19 transmission.",
 }) {
   return (
