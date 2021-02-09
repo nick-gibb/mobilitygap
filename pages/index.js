@@ -10,7 +10,7 @@ export default function Home() {
         <Grid doubling stackable centered verticalAlign="middle" columns={2}>
           <Grid.Column>
             <Image
-              src="/mglogo_resized.png.png"
+              src="/mglogo_resized.png"
               alt="Mobility Gap Logo"
               width={263}
               height={298}
